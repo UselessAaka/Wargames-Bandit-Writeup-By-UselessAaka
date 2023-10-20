@@ -12,7 +12,7 @@ Writeups for bandit wargames levels
 # Level 0 → Level 1
 ### Commands used
 ```
-ssh bandit1@bandit.labs.overthewire.org -p 2220
+ssh bandit0@bandit.labs.overthewire.org -p 2220
 ls -a
 cat readme
 exit
@@ -28,7 +28,7 @@ First I connected to the ssh using the password we got from last level then used
 # Level 1 → Level 2
 ### Commands used
 ```
-ssh bandit2@bandit.labs.overthewire.org -p 2220
+ssh bandit1@bandit.labs.overthewire.org -p 2220
 ls -a
 cat ./-
 ```
@@ -41,13 +41,32 @@ After connecting to the ssh and listing the files I used the command 'cat ./-' t
 # Level 2 → Level 3
 ### Commands used
 ```
-ssh bandit3@bandit.labs.overthewire.org -p 2220
+ssh bandit2@bandit.labs.overthewire.org -p 2220
 ls -a
 cat spaces\ in\ this\ filename
 ```
-
 ### Flag 
 >aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
 ### Approach used
-After connecting to the ssh and listing the files I used the command 'cat spaces\ in\ this\ filename ' to read contents of the file and there we got the next password. 
+After connecting to the ssh and listing the files I used the command 'cat spaces\ in\ this\ filename ' to read contents of the file and there we got the next password.
+
+# Level 3 → Level 4
+### Commands used 
+```
+ssh bandit3@bandit.labs.overthewire.org -p 2220
+ls -alps
+cd inhere/
+ls -a
+cat .hidden
+```
+
+### Flag
+>2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
+### Approach used
+After connecting to ssh, we have to go inside a directory named 'inhere/'. Now type the next command 'ls -alps' which will give us all files in a list form also apply slash(/) in front of the directories. Inside the directory you will see a file named '.hidden' and we have to read this to get the next password.
+
+# Level 4 → Level 5
+### Commands used
+
+
 
