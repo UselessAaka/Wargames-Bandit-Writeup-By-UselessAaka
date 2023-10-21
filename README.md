@@ -94,7 +94,7 @@ cat ./-file07
 ### Approach used 
 After connecting to the ssh I entered the 'inhere' directory then listed all the files. In the first method I have to check file type for every file by using ' file ./-fileXX' again and again which is very time consuming to do instead of doing that I used the second method through which I can see the file type of every file in the directory by just using one command ' file ./*'. Then I just used 'cat' command to read the 'ASCII text' file that is the file '-file07' to get the password.
 ### Resources used
-[phoenixNAP](https://phoenixnap.com/kb/linux-file-command)
+[phoenixNAP](https://phoenixnap.com/kb/linux-file-command) and file command from '[Commands you may need to solve this level](https://man7.org/linux/man-pages/man1/file.1.html)'
 
 # Level 5 → Level 6
 ### Commands used
@@ -111,7 +111,7 @@ cat ./maybehere07/.file2
 ### Approach used
 After entering the 'inhere' directory we will 20 more directories named from 'maybehere00' to 'maybehere19'. Now I used the find command to find a file which is human readable, not executable(used '!' for not) with keeping the size 1033c as given in the question, which gave me the output './maybehere07/.file2'. Then I just used the 'cat' command on this file to get the password.
 ### Resources used
-[Find command by geeksforgeeks](https://www.geeksforgeeks.org/find-command-in-linux-with-examples/)
+find command from '[Commands you may need to solve this level](https://man7.org/linux/man-pages/man1/find.1.html)'
 
 #  Level 6 → Level 7
 
