@@ -184,10 +184,14 @@ using the command ' man base64'.
 ### Commands used
 ```
 ssh bandit11@bandit.labs.overthewire.org -p 2220
+ls
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 ### Flag
->
+>JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
 ### Approach used
-
+After listing the files we will use 'cat' command with tool 'tr' and keeping values ('A-Za-z' 'N-ZA-Mn-za-m') to use rot13 on the text and get our password.
+### Resouces used
+use 'man tr' to learn about 'tr' tool and [ROT13 Wikipedia](https://en.wikipedia.org/wiki/ROT13) to learn about rot13.
 
 
