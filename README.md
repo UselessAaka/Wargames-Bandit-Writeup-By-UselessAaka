@@ -126,11 +126,68 @@ cat /var/lib/dpkg/info/bandit7.password
 After connecting to the server we will just use the find command to find a file with user name 'bandit7' and in group 'bandit6' with a size of 33 bytes. We will get a big list of files and we just need to find a location where ' permission denied' is not written. On searching we will find '/var/lib/dpkg/info/bandit7.password' which has nothing written in front or back of it, so we will just use 'cat' command to read this file and get the password.
 # Level 7 → Level 8
 ### Commands used
-
-
-
+```
+ssh bandit7@bandit.labs.overthewire.org -p 2220
+ls
+cat data.txt | grep "millionth"
+```
 ### Flag
-
-
-
+>TESKZC0XvTetK0S9xNwm25STk5iWrBvP
 ### Approach used
+After using 'ls' command we will get only one file named 'data.txt'. Now by using 'cat' and 'grep' command together, we will find the word 'millionth' and the password is written in front of it.
+### Resources used
+learnt about grep from [Grep Command in Linux ](https://www.freecodecamp.org/news/grep-command-in-linux-usage-options-and-syntax-examples/#:~:text=grep%20is%20short%20for%20%22global,a%20powerful%20command%20to%20use.) or use the command 'man grep' to know more about grep.
+
+# Level 8 → Level 9
+### Commands used
+```
+ssh bandit8@bandit.labs.overthewire.org -p 2220
+ls
+cat data.txt | sort | uniq -c
+```
+### Flag
+>EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+### Approach used
+After listing the files we find the file ' data.txt'. Now we use 'cat' to read the file with using commands like 'sort' to sort the identical texts and 'uniq -c' to to sort all texts with no. of counts they have appeared. We will find only 1 text that has appeared once so that is the password.
+### Resource used
+we can use commands 'man sort' and 'man uniq' to know more about them in the terminal itself.
+
+# Level 9 → Level 10
+### Commands used
+```
+ssh bandit9@bandit.labs.overthewire.org -p 2220
+ls
+strings data.txt | grep =
+```
+### Flag
+>G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+### Approach used
+We can't use the 'cat' command here cause this is not a human readable file, so instead we are using the ' strings' command to use it to find readable strings and also using the 'grep' command to find text with '='. We will find two texts with equal to in front of them and one of them is the password.
+### Resources used
+we can learn about 'strings' command from '[Linux strings command](https://www.javatpoint.com/linux-strings-command)'
+
+# Level 10 → Level 11
+### Commands used
+```
+ssh bandit10@bandit.labs.overthewire.org -p 2220
+ls
+cat data.txt | base64 -d      or   base64 data.txt -d
+```
+### Flag
+>6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+### Approach used
+When we use ' cat data.txt' we can easily see that the file is in base64 because the text is ending with two '='(which tells us that it is base64). So now we have to use 'cat' with the tool base64 and using '-d' to decode it and get the password.
+### Resources used 
+using the command ' man base64'.
+
+# Level 11 → Level 12
+### Commands used
+```
+ssh bandit11@bandit.labs.overthewire.org -p 2220
+```
+### Flag
+>
+### Approach used
+
+
+
