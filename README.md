@@ -99,7 +99,7 @@ After connecting to the ssh I entered the 'inhere' directory then listed all the
 # Level 5 → Level 6
 ### Commands used
 ```
-ssh bandit4@bandit.labs.overthewire.org -p 2220
+ssh bandit5@bandit.labs.overthewire.org -p 2220
 ls 
 cd inhere/
 ls
@@ -114,4 +114,23 @@ After entering the 'inhere' directory we will 20 more directories named from 'ma
 find command from '[Commands you may need to solve this level](https://man7.org/linux/man-pages/man1/find.1.html)'
 
 #  Level 6 → Level 7
+### Commands used 
+```
+ssh bandit6@bandit.labs.overthewire.org -p 2220
+find / -user bandit7 -group bandit6 -size 33c
+cat /var/lib/dpkg/info/bandit7.password
+```
+### Flag
+>z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+### Approach used
+After connecting to the server we will just use the find command to find a file with user name 'bandit7' and in group 'bandit6' with a size of 33 bytes. We will get a big list of files and we just need to find a location where ' permission denied' is not written. On searching we will find '/var/lib/dpkg/info/bandit7.password' which has nothing written in front or back of it, so we will just use 'cat' command to read this file and get the password.
+# Level 7 → Level 8
+### Commands used
 
+
+
+### Flag
+
+
+
+### Approach used
