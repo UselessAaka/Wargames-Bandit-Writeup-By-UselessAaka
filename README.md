@@ -194,4 +194,58 @@ After listing the files we will use 'cat' command with tool 'tr' and keeping val
 ### Resouces used
 use 'man tr' to learn about 'tr' tool and [ROT13 Wikipedia](https://en.wikipedia.org/wiki/ROT13) to learn about rot13.
 
+# Level 12 → Level 13
+### Commands used
+```
+ssh bandit12@bandit.labs.overthewire.org -p 2220
+ls
+cat data.txt   # We can see that it is a hexdump file.
+cd /tmp
+mkdir useless1
+cd ..
+cd ..
+cd
+cp data.txt /tmp/useless1
+cd /tmp/useless1
+cat data.txt | xxd -r
+cat data.txt | xxd -r > hex
+ls
+file hex
+mv hex hex.gz
+ls
+gzip -d hex.gz
+ls
+file hex
+mv hex hex.bz2
+bzip2 -d hex.bz2
+ls
+file hex
+mv hex hex.gz
+gzip -d hex.gz
+ls
+file hex
+tar -xf hex
+ls
+file data5.bin
+tar -xf data5.bin
+ls
+file data6.bin
+tar -xf data6.bin
+ls
+file data8.bin
+mv data8.bin data8.bin.gz
+gzip -d data8.bin.gz
+ls
+file data8.bin
+cat data8.bin
+```
+### Flag
+>wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+### Approach used
+First I entered the directory 'tmp' then made a file using the 'mkdir' command. Then went back to the the bandit12 folder to get the 'data.txt' file. Using the copy command 'cp', I copied the file to the 'useless1' directory created by me. then used 'cat' command with the tool 'xxd' to reverse engineer the hexdump file and move it to file named 'hex'. After identifying the file type of 'hex', we will see that it is a gzip file which is very similar to zip file in windows which means we just have to extract it. So we rename 'hex' to 'hex.gz' and then use the gzip tool to decompress the 'hex.gz' file. We will again check the file type of the hex file and see that it is a bzip2 file. So we will again rename the file from 'hex' to 'hex.bz2' and then use the bzip2 tool to decompress the file. Again we will check the file type of the hex file and it is gzip again so same process again after that when we check the file type, this time it is a 'tar' file so we will use tar tool with '-xf', where 'x' basically extracts file from archive and 'f' specifies the filename of the archive. We will get a 'data5.bin' file. Again this is a tar file so same step. The we will get 'data6.bin' which a bzip2 file so we will do the same process we did earlier and then again check the file type of the result, which gives us data6.bin file which is in tar format so we will extract it. This time we will get 'data8.bin' file which is in gzip, so we extract it and get an ASCII file named 'data8.bin'. now, we will just read the file and get the password.
+### Resources used
+manual page of gzip, bzip2, tar, mkdir, [Hex dump on Wikipedia](https://en.wikipedia.org/wiki/Hex_dump) and some videos related to extracting files and making folders.
+
+
+
 
