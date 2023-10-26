@@ -246,6 +246,52 @@ First I entered the directory 'tmp' then made a file using the 'mkdir' command. 
 ### Resources used
 manual page of gzip, bzip2, tar, mkdir, [Hex dump on Wikipedia](https://en.wikipedia.org/wiki/Hex_dump) and some videos related to extracting files and making folders.
 
+# Level 13 → Level 14
+### Commands used
+```
+ssh bandit13@bandit.labs.overthewire.org -p 2220
+ls
+ssh -i sshkey.private bandit14@localhost -p 2220
+cat /etc/bandit_pass/bandit14
+```
+### Flag
+>fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+### Approach used
+Using 'ls' we will only find one file named 'sshkey.private' which is basically a private key so we will use the ssh tool with '-i' which basically selects a file from which the identity (private key) for public key authentication is read. Also the user will be bandit14 and host name will be localhost as given in question and as always port should be 2220. After connecting to the neww ssh, just use cat command to read the file given in question i.e. /etc/bandit_pass/bandit14. We will get the password.
+### Resources used
+manual page of ssh and some forums on using keys to connect to ssh.
+
+# Level 14 → Level 15
+### Commands used
+```
+ssh bandit13@bandit.labs.overthewire.org -p 2220
+ls
+ssh -i sshkey.private bandit14@localhost -p 2220
+nc localhost 30000
+(put the password from last level only)
+```
+### Flag
+>jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+### Approach used
+While doing Level 13 → Level 14 and after reading the password, we can continue from there only and use 'nc' command to connect to localhost using port 30000 and there we need to paste the password from last level to automatically get the next password.
+### Resources used
+manual page of nc and [The netcat Command in Linux](https://www.tutorialspoint.com/the-netcat-command-in-linux#:~:text=The%20netcat%20command%2C%20also%20known,of%20other%20network%2Drelated%20tasks.)
+
+# Level 15 → Level 16
+### Commands used
+```
+ssh bandit15@bandit.labs.overthewire.org -p 2220
+openssl s_client -connect localhost:30001
+(Enter the password from last level)
+```
+### Flag
+>JQttfApK4SeyHwDlI9SXGR50qclOAil1
+### Approach used
+After connecting to the ssh, we use the openssl tool with 's_client' which basically tells the the client wwe need to connect to then we tell about the localhost which is ported to 30001. Then just enter the password from last level to get the password of next level.
+### Resources used
+manual page of openssl and s_client and the helpful reading material given on OTW site.
+
+
 
 
 
