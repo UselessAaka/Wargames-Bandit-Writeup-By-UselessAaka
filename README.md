@@ -368,17 +368,34 @@ ssh bandit18@bandit.labs.overthewire.org -p 2220 "cat readme"
 ### Approach used
 I just used the ls command in the same line with ssh tool so by doing this ls will be executed before we logout and after that I repeated the same command and just used 'cat readme' this time to get the password.
 ### Resources used
-I tries to bypass bash by [reading the file through ssh/scp directly](https://stackoverflow.com/questions/27491467/how-to-read-file-through-ssh-scp-directly)
+I tried to bypass bash by [reading the file through ssh/scp directly](https://stackoverflow.com/questions/27491467/how-to-read-file-through-ssh-scp-directly)
 
-# Level 18 → Level 19
+# Level 19 → Level 20
 ### Commands used
 ```
 ssh bandit19@bandit.labs.overthewire.org -p 2220 
+ls -la
+./bandit20-do
+./bandit20-do id
+./bandit20-do ls /etc/bandit_pass
+./bandit20-do cat /etc/bandit_pass/bandit20
+```
+### Flag
+>VxCazJaVykI6W36BkBU0mJTCM8rR95XT
+### Approach used
+
+
+# Level 20 → Level 21
+### Commands used
+```
+ssh bandit20@bandit.labs.overthewire.org -p 2220 
 
 ```
 ### Flag
 >
 ### Approach used
+
+
 
 
 
