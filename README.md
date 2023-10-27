@@ -360,11 +360,26 @@ manual page of diff.
 # Level 18 → Level 19
 ### Commands used
 ```
-ssh bandit18@bandit.labs.overthewire.org -p 2220
+ssh bandit18@bandit.labs.overthewire.org -p 2220 "ls"
+ssh bandit18@bandit.labs.overthewire.org -p 2220 "cat readme"
+```
+### Flag
+>awhqfNnAbc1naukrpqDYcF95h7HoMTrC
+### Approach used
+I just used the ls command in the same line with ssh tool so by doing this ls will be executed before we logout and after that I repeated the same command and just used 'cat readme' this time to get the password.
+### Resources used
+I tries to bypass bash by [reading the file through ssh/scp directly](https://stackoverflow.com/questions/27491467/how-to-read-file-through-ssh-scp-directly)
+
+# Level 18 → Level 19
+### Commands used
+```
+ssh bandit19@bandit.labs.overthewire.org -p 2220 
+
 ```
 ### Flag
 >
 ### Approach used
+
 
 
 
