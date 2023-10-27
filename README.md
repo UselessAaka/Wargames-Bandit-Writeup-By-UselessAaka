@@ -308,7 +308,8 @@ ls -al
 chmod 600 rsafile
 ```
 ### Flag
-> -----BEGIN RSA PRIVATE KEY-----
+-----BEGIN RSA PRIVATE KEY-----
+
 MIIEogIBAAKCAQEAvmOkuifmMg6HL2YPIOjon6iWfbp7c3jx34YkYWqUH57SUdyJ
 imZzeyGC0gtZPGujUSxiJSWI/oTqexh+cAMTSMlOJf7+BrJObArnxd9Y7YT2bRPQ
 Ja6Lzb558YW3FZl87ORiO+rW4LCDCNd2lUvLE/GL2GWyuKN0K5iCd5TbtJzEkQTu
@@ -334,10 +335,13 @@ YOdjHdSOoKvDQNWu6ucyLRAWFuISeXw9a/9p7ftpxm0TSgyvmfLF2MIAEwyzRqaM
 77pBAoGAMmjmIJdjp+Ez8duyn3ieo36yrttF5NSsJLAbxFpdlc1gvtGCWW+9Cq0b
 dxviW8+TFVEBl1O4f7HVm6EpTscdDxU+bCXWkfjuRb7Dy9GOtt9JPsX8MBTakzh3
 vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52O6IgeuZ/ujbjY=
+
 -----END RSA PRIVATE KEY-----
 
 ### Approach used
-
+First I used the 'nmap' command to scan all the ports in the range 31000 to 32000, then it gave me all the ports that were open. Again I used the 'nmap' tool but this time with '-sV' and '-T4' which basically detects the service/version and to make the scan quicker respectively. Then I used the 'openssl' tool to connect to the two ports which had ssl service and those were 31518 and 31790. After connecting to the 31518 port, I typed the password of level 16 but it just gave me the same password as result so i ended the connection. Then I connected to the 31790 port and typed the level 16 password and this time it told me that it was correct and gave me the private key. Now I just made a rsafile in '/tmp/useless2' by using the 'nano' command and then saved the key in this file. Then I just used 'ls -al' and found that the rsafile can be read by any user or group so it won't let me connect to bandit17 so I use 'chmod' tool to change the permissions of the file so that only I can access it and then just connect to the bandit17 ssh.
+### Resources used
+manual pages of nmap, nano, chmod. Used [Nano Text Editor in Linux](https://www.geeksforgeeks.org/nano-text-editor-in-linux/) to learn how and when to use a text editor to save the private key I got and used [Change File Permissions (chmod)](https://youtu.be/D3YY1RJKzrA) to learn how and why to change permissions of a file.
 
 # Level 17 → Level 18
 ### Commands used
@@ -349,5 +353,19 @@ diff passwords.old passwords.new
 ### Flag
 >hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
 ### Approach used
+After connecting to the bandit17 ssh using the private key of last level we will just list the files and see that there are two files 'passwords.old' and 'passwords.new'. As per the question the only line that has been changed between passwords.old and passwords.new is the answer so we will just use the diff tool to see which line is different b/w them and get the password.
+### Resources used
+manual page of diff.
+
+# Level 18 → Level 19
+### Commands used
+```
+ssh bandit18@bandit.labs.overthewire.org -p 2220
+```
+### Flag
+>
+### Approach used
+
+
 
 
