@@ -405,10 +405,33 @@ We have to create two tabs for this so that we can listen a port on one and conn
 ### Commands used
 ```
 ssh bandit21@bandit.labs.overthewire.org -p 2220
+cd /etc/cron.d
+ls -al
+cat cronjob_bandit22
+cat /usr/bin/cronjob_bandit22.sh
+cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 ```
 ### Flag
->
+>WdDozAdTM2z9DiFEQ2mGlwngMfj4EZff
 ### Approach used
+I first used cd to enter the directory location given then used ls to list the files. Used cat command to read the 'cronjob_bandit22' file and then I used the cat command again to read the '/usr/bin' file. There I found 'cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv' which basically means that the readable contents of the /etc/bandit_pass/bandit22 file are in /tmp...... so this means I just nead to read the /tmp file and also the chmod was 644 which means anyone can read it. So I used cat command again and got the password
+
+# Level 22 → Level 23
+### Commands used
+```
+ssh bandit22@bandit.labs.overthewire.org -p 2220
+cd /etc/cron.d
+ls
+cat cronjob_bandit23
+cat /usr/bin/cronjob_bandit23.sh
+myname=bandit23
+mytarget= echo I am user bandit23 | md5sum | cut -d ' ' -f 1
+cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+```
+### Flag
+>QYw0Y2aiA672PsMmh9puTQuhoz8SyR2G
+### Approach used
+After entering the directory given in question, we will list all the files then read the cronjob_bandit23. Again we will read the /user/bin shell script and it tells us change our name by 'myname=$(whoami)' and after this 'mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)'{where md5 sum prints or checks MD5  checksums and cut removes the hyphen we will get at the end and is already given in the /usr/bin file}  so first we keep our name bandit23 and after writing the mytarget command and running it we will get '8ca319486bfbbc3663ea0fbe81326349' which is the file where or password is stored. So we will use cat command to read the '/tmp/8ca319486bfbbc3663ea0fbe81326349' file and get the password.
 
 
 
