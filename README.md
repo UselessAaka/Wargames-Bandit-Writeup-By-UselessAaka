@@ -383,6 +383,7 @@ ls -la
 ### Flag
 >VxCazJaVykI6W36BkBU0mJTCM8rR95XT
 ### Approach used
+After listing the files, we can see a red colored file which basically tells that it can be accessed by only bandit20 even though it is present in badit19 directory. So we will use a command './bandit20-do'to run command as another user, here we are bandit20 now, to see that we can just use 'id' command to check which user are we. Then we use ls but with the './bandit20-do'command to use ls as bandit 20. Then just use cat command with the location specified and we will get the password in the bandit20 file.
 
 
 # Level 20 → Level 21
