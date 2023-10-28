@@ -389,8 +389,22 @@ After listing the files, we can see a red colored file which basically tells tha
 # Level 20 → Level 21
 ### Commands used
 ```
-ssh bandit20@bandit.labs.overthewire.org -p 2220 
+{In one tab}                                                          |     {In another tab}
+ssh bandit20@bandit.labs.overthewire.org -p 2220                      |    ssh bandit20@bandit.labs.overthewire.org -p 2220  
+ls                                                                    |    nc -lp 3333
+./suconnect                                                           |    VxCazJaVykI6W36BkBU0mJTCM8rR95XT (type the password when it shows connection received on localhost)
+./suconnect 3333                                                      |                                                                   
 
+```
+### Flag
+>NvEJF7oVjkddltPSrdKEFOllh9V1IBcq
+### Approach used
+We have to create two tabs for this so that we can listen a port on one and connect to it from other. So, we will first connect to the ssh and then use ls and see that there is a file 'suconnect' so we will connect to it and it will tells us hoew to connect by writing the port number infront of it. In the other tab we will use nc command with 'lp' to listen for an incoming connection rather than initiating a connection to a remote host and 'p' tells the destination port to listen on. Now going back to the earlier tab we will use './suconnect' with the same port we used in the other tab i.e. 3333 and then paste the password of level 20 in the listening tab and we will get the new password.
+
+# Level 21 → Level 22
+### Commands used
+```
+ssh bandit21@bandit.labs.overthewire.org -p 2220
 ```
 ### Flag
 >
