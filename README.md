@@ -391,9 +391,9 @@ After listing the files, we can see a red colored file which basically tells tha
 ```
 {In one tab}                                                          |     {In another tab}
 ssh bandit20@bandit.labs.overthewire.org -p 2220                      |    ssh bandit20@bandit.labs.overthewire.org -p 2220  
-ls                                                                    |    nc -lp 3333
+ls                                                                    |    nc -lp 1169
 ./suconnect                                                           |    VxCazJaVykI6W36BkBU0mJTCM8rR95XT (type the password when it shows connection received on localhost)
-./suconnect 3333                                                      |                                                                   
+./suconnect 1169                                                      |                                                                   
 
 ```
 ### Flag
